@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: add load balancer">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/clients/InventoryFeignClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/config/FeignClientConfig.java" afterDir="false" />
+    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="fix: inventory service and order service communication">
+      <change afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/programmingtechie/apigateway/ApiGateWayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/java/com/programmingtechie/inventory_service/InventoryServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/java/com/programmingtechie/inventory_service/InventoryServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/OrderServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/OrderServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +76,14 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderServiceApplication">
+  <component name="RunManager" selected="Spring Boot.InventoryServiceApplication">
+    <configuration name="ApiGateWayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.programmingtechie.apigateway.ApiGateWayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiscoveryServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="discovery-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.programmingtechie.discoveryservice.DiscoveryServerApplication" />
@@ -116,6 +119,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Spring Boot.ApiGateWayApplication" />
       <item itemvalue="Spring Boot.InventoryServiceApplication" />
       <item itemvalue="Spring Boot.OrderServiceApplication" />
       <item itemvalue="Spring Boot.ProductServiceApplication" />
@@ -147,7 +151,8 @@
       <workItem from="1718119552963" duration="1803000" />
       <workItem from="1718178607205" duration="16493000" />
       <workItem from="1718216724434" duration="3133000" />
-      <workItem from="1718268468180" duration="625000" />
+      <workItem from="1718268468180" duration="2083000" />
+      <workItem from="1718280031657" duration="2910000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add unversioned files">
       <option name="closed" value="true" />
@@ -205,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718203205991</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix: inventory service and order service communication">
+      <option name="closed" value="true" />
+      <created>1718269555734</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718269555734</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +232,7 @@
     <MESSAGE value="ft: config eureka clients" />
     <MESSAGE value="ft: setting up eureka netflix discovery server" />
     <MESSAGE value="ft: add load balancer" />
-    <option name="LAST_COMMIT_MESSAGE" value="ft: add load balancer" />
+    <MESSAGE value="fix: inventory service and order service communication" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: inventory service and order service communication" />
   </component>
 </project>
