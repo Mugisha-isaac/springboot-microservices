@@ -3,6 +3,7 @@ package com.programmingtechie.order_service.service;
 import com.programmingtechie.order_service.DTO.InventoryResponse;
 import com.programmingtechie.order_service.DTO.OrderLineItemsDto;
 import com.programmingtechie.order_service.DTO.OrderRequest;
+import com.programmingtechie.order_service.clients.InventoryFeignClient;
 import com.programmingtechie.order_service.config.WebClientConfig;
 import com.programmingtechie.order_service.model.Order;
 import com.programmingtechie.order_service.model.OrderLineItems;
@@ -23,6 +24,7 @@ public class OrderService {
 
     private final IOrderRepository orderRepository;
     private final WebClient.Builder webClientBuilder;
+//    private final InventoryFeignClient inventoryFeignClient;
 
     public void placeOrder(OrderRequest orderRequest) {
         Order order = new Order();
@@ -45,8 +47,11 @@ public class OrderService {
                 .bodyToMono(InventoryResponse[].class)
                 .block();
 
+//        List<InventoryResponse> inventoryResponsesArray = inventoryFeignClient.isInStock(skuCodes);
+
         System.out.println("inventoryResponsesArray = " + Arrays.toString(inventoryResponsesArray));
         boolean allProductsInStock = Arrays.stream(Objects.requireNonNull(inventoryResponsesArray)).allMatch(InventoryResponse::getIsInStock);
+//        boolean allProductsInStock = inventoryResponsesArray.stream().allMatch(InventoryResponse::getIsInStock);
         if (allProductsInStock) {
             orderRepository.save(order);
         } else {
