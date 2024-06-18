@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: define all apis definition in api gateway service">
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/utils/MapperUtil.java" afterDir="false" />
+    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: add keycloak configuration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/java/com/programmingtechie/discoveryservice/DiscoveryServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/java/com/programmingtechie/discoveryservice/DiscoveryServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/java/com/programmingtechie/inventory_service/InventoryServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/java/com/programmingtechie/inventory_service/InventoryServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/config/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +73,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ProductServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ApiGateWayApplication">
     <configuration name="ApiGateWayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.programmingtechie.apigateway.ApiGateWayApplication" />
@@ -159,7 +153,7 @@
       <workItem from="1718530808062" duration="4412000" />
       <workItem from="1718614821487" duration="5647000" />
       <workItem from="1718724967496" duration="1100000" />
-      <workItem from="1718736123709" duration="642000" />
+      <workItem from="1718736123709" duration="2457000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add unversioned files">
       <option name="closed" value="true" />
@@ -241,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718285932118</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="ft: add keycloak configuration">
+      <option name="closed" value="true" />
+      <created>1718736809117</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1718736809117</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +260,7 @@
     <MESSAGE value="fix: inventory service and order service communication" />
     <MESSAGE value="ft: api-gateway config" />
     <MESSAGE value="ft: define all apis definition in api gateway service" />
-    <option name="LAST_COMMIT_MESSAGE" value="ft: define all apis definition in api gateway service" />
+    <MESSAGE value="ft: add keycloak configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="ft: add keycloak configuration" />
   </component>
 </project>
