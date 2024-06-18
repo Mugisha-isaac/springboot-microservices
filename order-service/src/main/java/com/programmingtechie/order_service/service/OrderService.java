@@ -8,6 +8,7 @@ import com.programmingtechie.order_service.config.WebClientConfig;
 import com.programmingtechie.order_service.model.Order;
 import com.programmingtechie.order_service.model.OrderLineItems;
 import com.programmingtechie.order_service.repository.IOrderRepository;
+import com.programmingtechie.order_service.utils.MapperUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -30,7 +31,7 @@ public class OrderService {
         Order order = new Order();
         order.setOrderNumber(UUID.randomUUID().toString());
         List<OrderLineItems> orderLineItems = orderRequest.getOrderLineItemsDtoList().stream()
-                .map(this::mapToDto)
+                .map(dto -> MapperUtil.mapToDto(dto, OrderLineItems.class))
                 .collect(Collectors.toList());
         order.setOrderLineItems(orderLineItems);
 
@@ -57,13 +58,5 @@ public class OrderService {
         } else {
             throw new IllegalArgumentException("Product is out of stock");
         }
-    }
-
-    private OrderLineItems mapToDto(OrderLineItemsDto orderLineItemsDto) {
-        OrderLineItems orderLineItems = new OrderLineItems();
-        orderLineItems.setPrice(orderLineItemsDto.getPrice());
-        orderLineItems.setQuantity(orderLineItemsDto.getQuantity());
-        orderLineItems.setSkuCode(orderLineItemsDto.getSkuCode());
-        return orderLineItems;
     }
 }
