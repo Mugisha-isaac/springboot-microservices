@@ -27,7 +27,7 @@ public class OrderService {
     private final WebClient.Builder webClientBuilder;
 //    private final InventoryFeignClient inventoryFeignClient;
 
-    public void placeOrder(OrderRequest orderRequest) {
+    public String placeOrder(OrderRequest orderRequest) {
         Order order = new Order();
         order.setOrderNumber(UUID.randomUUID().toString());
         List<OrderLineItems> orderLineItems = orderRequest.getOrderLineItemsDtoList().stream()
@@ -55,6 +55,7 @@ public class OrderService {
 //        boolean allProductsInStock = inventoryResponsesArray.stream().allMatch(InventoryResponse::getIsInStock);
         if (allProductsInStock) {
             orderRepository.save(order);
+            return "Order Placed Successfully!";
         } else {
             throw new IllegalArgumentException("Product is out of stock");
         }

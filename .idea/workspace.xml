@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: authorise eureka/web">
+    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: add Resilence4j circuit breaker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/java/com/programmingtechie/inventory_service/service/InventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/java/com/programmingtechie/inventory_service/service/InventoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +156,7 @@
       <workItem from="1718614821487" duration="5647000" />
       <workItem from="1718724967496" duration="1100000" />
       <workItem from="1718736123709" duration="5718000" />
-      <workItem from="1718893586297" duration="2433000" />
+      <workItem from="1718893586297" duration="3265000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add unversioned files">
       <option name="closed" value="true" />
@@ -262,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718741878675</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="ft: add Resilence4j circuit breaker">
+      <option name="closed" value="true" />
+      <created>1718896099642</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896099642</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +290,7 @@
     <MESSAGE value="ft: add keycloak configuration" />
     <MESSAGE value="ft: protect microservices endpoints through gateway service using keyClock" />
     <MESSAGE value="ft: authorise eureka/web" />
-    <option name="LAST_COMMIT_MESSAGE" value="ft: authorise eureka/web" />
+    <MESSAGE value="ft: add Resilence4j circuit breaker" />
+    <option name="LAST_COMMIT_MESSAGE" value="ft: add Resilence4j circuit breaker" />
   </component>
 </project>
