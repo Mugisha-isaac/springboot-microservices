@@ -5,6 +5,7 @@ import com.programmingtechie.order_service.DTO.OrderLineItemsDto;
 import com.programmingtechie.order_service.DTO.OrderRequest;
 import com.programmingtechie.order_service.clients.InventoryFeignClient;
 import com.programmingtechie.order_service.config.WebClientConfig;
+import com.programmingtechie.order_service.event.OrderPlacedEvent;
 import com.programmingtechie.order_service.model.Order;
 import com.programmingtechie.order_service.model.OrderLineItems;
 import com.programmingtechie.order_service.repository.IOrderRepository;
@@ -12,6 +13,7 @@ import com.programmingtechie.order_service.utils.MapperUtil;
 import io.micrometer.tracing.Span;
 import io.micrometer.tracing.Tracer;
 import lombok.RequiredArgsConstructor;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -28,6 +30,7 @@ public class OrderService {
     private final IOrderRepository orderRepository;
     private final WebClient.Builder webClientBuilder;
     private final Tracer tracer;
+    private final KafkaTemplate<String,OrderPlacedEvent> kafkaTemplate;
 //    private final InventoryFeignClient inventoryFeignClient;
 
     public String placeOrder(OrderRequest orderRequest) {
@@ -60,6 +63,7 @@ public class OrderService {
 //        boolean allProductsInStock = inventoryResponsesArray.stream().allMatch(InventoryResponse::getIsInStock);
            if (allProductsInStock) {
                orderRepository.save(order);
+               kafkaTemplate.send("notificationTopic", new OrderPlacedEvent(order.getOrderNumber()));
                return "Order Placed Successfully!";
            } else {
                throw new IllegalArgumentException("Product is out of stock");
