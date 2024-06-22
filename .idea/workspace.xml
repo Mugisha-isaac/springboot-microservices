@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: add retry for a failuring endpoint">
+    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: add centralised tracing using micrometer and zipkin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/java/com/programmingtechie/inventory_service/service/InventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/java/com/programmingtechie/inventory_service/service/InventoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +155,8 @@
       <workItem from="1718724967496" duration="1100000" />
       <workItem from="1718736123709" duration="5718000" />
       <workItem from="1718893586297" duration="5274000" />
-      <workItem from="1718980186556" duration="2846000" />
+      <workItem from="1718980186556" duration="3856000" />
+      <workItem from="1719046666454" duration="1250000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add unversioned files">
       <option name="closed" value="true" />
@@ -295,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718897692925</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="ft: add centralised tracing using micrometer and zipkin">
+      <option name="closed" value="true" />
+      <created>1718983454899</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1718983454899</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,6 +317,7 @@
     <MESSAGE value="ft: add Resilence4j circuit breaker" />
     <MESSAGE value="ft: add websync for timeout requests" />
     <MESSAGE value="ft: add retry for a failuring endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="ft: add retry for a failuring endpoint" />
+    <MESSAGE value="ft: add centralised tracing using micrometer and zipkin" />
+    <option name="LAST_COMMIT_MESSAGE" value="ft: add centralised tracing using micrometer and zipkin" />
   </component>
 </project>
