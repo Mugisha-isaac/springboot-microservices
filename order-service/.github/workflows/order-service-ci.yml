@@ -1,4 +1,4 @@
-
+# order-service/.github/workflows/order-service-ci.yml
 name: Order Service CI
 
 on:
@@ -57,7 +57,7 @@ jobs:
           echo "DB_USER=postgres" >> $GITHUB_ENV
           echo "DB_PASSWORD=Mugisha12!" >> $GITHUB_ENV
 
-      - name: Build and test Service 1
+      - name: Build and test Order Service
         run: |
           mvn -B -f pom.xml clean package
           mvn -B -f pom.xml test -Dspring.datasource.url=${{ env.DB_URL }} \

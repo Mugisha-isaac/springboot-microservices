@@ -1,4 +1,4 @@
-
+# product-service/.github/workflows/product-service-ci.yml
 name: Product Service CI
 
 on:
@@ -48,13 +48,13 @@ jobs:
           done
 
       - name: Set environment variables
-        run: |
+        run:
           echo "DB_URL=mongodb://localhost:27018/product-service" >> $GITHUB_ENV
 
-      - name: Build and test Service 1
+      - name: Build and test Product Service
         run: |
           mvn -B -f pom.xml clean package
-          mvn -B -f pom.xml test -Dspring.data.mongodb.uri=${{ env.DB_URL }}
+          mvn -B
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3

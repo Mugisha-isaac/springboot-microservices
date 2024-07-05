@@ -1,4 +1,4 @@
-
+# inventory-service/.github/workflows/inventory-service-ci.yml
 name: Inventory Service CI
 
 on:
@@ -16,10 +16,10 @@ jobs:
       postgres:
         image: postgres:latest
         ports:
-          - 5433:5432
+          - 5434:5432
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: Mugisha12!
+          POSTGRES_PASSWORD: password
           POSTGRES_DB: inventory_service_db
         options: >-
           --health-cmd "pg_isready -U postgres"
@@ -43,7 +43,7 @@ jobs:
         run: |
           echo "Waiting for PostgreSQL to be ready..."
           for i in {1..10}; do
-            if pg_isready -h localhost -p 5433 -U postgres; then
+            if pg_isready -h localhost -p 5434 -U postgres; then
               echo "PostgreSQL is ready!"
               break
             fi
@@ -53,11 +53,11 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "DB_URL=jdbc:postgresql://localhost:5433/inventory_service_db" >> $GITHUB_ENV
+          echo "DB_URL=jdbc:postgresql://localhost:5434/inventory_service_db" >> $GITHUB_ENV
           echo "DB_USER=postgres" >> $GITHUB_ENV
-          echo "DB_PASSWORD=Mugisha12!" >> $GITHUB_ENV
+          echo "DB_PASSWORD=password" >> $GITHUB_ENV
 
-      - name: Build and test Service 1
+      - name: Build and test Inventory Service
         run: |
           mvn -B -f pom.xml clean package
           mvn -B -f pom.xml test -Dspring.datasource.url=${{ env.DB_URL }} \
