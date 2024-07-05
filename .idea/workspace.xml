@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: add docker application properties on each service">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
+    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: add github actions">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.docker.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/resources/application.docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application.docker.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.docker.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.docker.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +200,7 @@
       <workItem from="1719954622668" duration="2385000" />
       <workItem from="1719996714230" duration="4656000" />
       <workItem from="1720012252543" duration="190000" />
-      <workItem from="1720171182744" duration="887000" />
+      <workItem from="1720171182744" duration="1075000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add unversioned files">
       <option name="closed" value="true" />
@@ -393,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719277784229</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="ft: add github actions">
+      <option name="closed" value="true" />
+      <created>1720172179255</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1720172179256</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,6 +441,7 @@
     <MESSAGE value="fix: use correct for image building" />
     <MESSAGE value="ft: add Dockerfile.layered to build app on specific stages" />
     <MESSAGE value="ft: push service images to docker hub" />
-    <option name="LAST_COMMIT_MESSAGE" value="ft: push service images to docker hub" />
+    <MESSAGE value="ft: add github actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="ft: add github actions" />
   </component>
 </project>
