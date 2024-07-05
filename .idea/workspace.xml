@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="fix: workflow build">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/parent-ci.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory-service/.github/workflows/inventory-service-ci.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/.github/workflows/order-service-ci.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/.github/workflows/product-service-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" />
+    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: modulise github actions workflows">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/parent-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/parent-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +201,7 @@
       <workItem from="1719996714230" duration="4656000" />
       <workItem from="1720012252543" duration="190000" />
       <workItem from="1720171182744" duration="2837000" />
-      <workItem from="1720180537357" duration="1410000" />
+      <workItem from="1720180537357" duration="1605000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add unversioned files">
       <option name="closed" value="true" />
@@ -408,7 +403,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720172290895</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="ft: modulise github actions workflows">
+      <option name="closed" value="true" />
+      <created>1720182014460</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1720182014460</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +435,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: add unversioned files" />
     <MESSAGE value="ft: add webclient call on inventory service" />
     <MESSAGE value="ft: add place order" />
     <MESSAGE value="ft: setting up eureka discovery server" />
@@ -457,6 +459,7 @@
     <MESSAGE value="ft: push service images to docker hub" />
     <MESSAGE value="ft: add github actions" />
     <MESSAGE value="fix: workflow build" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: workflow build" />
+    <MESSAGE value="ft: modulise github actions workflows" />
+    <option name="LAST_COMMIT_MESSAGE" value="ft: modulise github actions workflows" />
   </component>
 </project>
