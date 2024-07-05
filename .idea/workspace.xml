@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: push service images to docker hub">
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application.docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application.docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.docker.properties" afterDir="false" />
+    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="ft: add docker application properties on each service">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.docker.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/resources/application.docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application.docker.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/order_service/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.docker.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.docker.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +55,10 @@
     &quot;Maven.notification-service [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.notification-service [package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.order-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.order-service [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor&quot;: &quot;Run&quot;,
     &quot;Maven.order-service [package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.product-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.product-service [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor&quot;: &quot;Run&quot;,
     &quot;Maven.product-service [package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.wrapper [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.wrapper [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor&quot;: &quot;Run&quot;,
@@ -161,8 +164,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.DiscoveryServerApplication" />
         <item itemvalue="Spring Boot.NotificationServiceApplication" />
+        <item itemvalue="Spring Boot.DiscoveryServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -198,6 +201,13 @@
       <workItem from="1719217146977" duration="6063000" />
       <workItem from="1719253854184" duration="5026000" />
       <workItem from="1719392179723" duration="3067000" />
+      <workItem from="1719846395001" duration="3054000" />
+      <workItem from="1719905994068" duration="395000" />
+      <workItem from="1719951207835" duration="1449000" />
+      <workItem from="1719954622668" duration="2385000" />
+      <workItem from="1719996714230" duration="4656000" />
+      <workItem from="1720012252543" duration="190000" />
+      <workItem from="1720171182744" duration="887000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add unversioned files">
       <option name="closed" value="true" />

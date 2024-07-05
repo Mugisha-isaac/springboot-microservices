@@ -16,7 +16,12 @@ services:
       - "5431"
     ports:
       - "5431:5431"
-    command: -p 5431
+    command: >
+      bash -c "
+      mkdir -p /var/lib/postgresql/data && 
+      chmod -R 0700 /var/lib/postgresql/data && 
+      chown -R postgres:postgres /var/lib/postgresql/data && 
+      postgres -D /var/lib/postgresql/data -p 5431"
     restart: always
 
   postgres-inventory:
@@ -109,15 +114,15 @@ services:
       - "9411:9411"
 
   ## Eureka Server
-  discovery-server:
+  discovery-service:
     image: misaac/discovery-server:latest
     container_name: discovery-service
     ports:
       - "8761:8761"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - zipkin
+#    depends_on:
+#      - zipkin
 
   api-gateway:
     image: misaac/api-gateway:latest
@@ -182,32 +187,31 @@ services:
       - broker
       - discovery-service
       - api-gateway
-
-  ## Prometheus
-  prometheus:
-    image: prom/prometheus:v2.37.1
-    container_name: prometheus
-    restart: always
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-    depends_on:
-      - product-service
-      - inventory-service
-      - order-service
-      - notification-service
-
-  grafana:
-    image: grafana/grafana-oss:8.5.2
-    container_name: grafana
-    restart: always
-    ports:
-      - "3000:3000"
-    links:
-      - prometheus:prometheus
-    volumes:
-      - ./grafana:/var/lib/grafana
-    environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=password
+#  ## Prometheus
+#  prometheus:
+#    image: prom/prometheus:v2.37.1
+#    container_name: prometheus
+#    restart: always
+#    ports:
+#      - "9090:9090"
+#    volumes:
+#      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+#    depends_on:
+#      - product-service
+#      - inventory-service
+#      - order-service
+#      - notification-service
+#
+#  grafana:
+#    image: grafana/grafana-oss:8.5.2
+#    container_name: grafana
+#    restart: always
+#    ports:
+#      - "3000:3000"
+#    links:
+#      - prometheus:prometheus
+#    volumes:
+#      - ./grafana:/var/lib/grafana
+#    environment:
+#      - GF_SECURITY_ADMIN_USER=admin
+#      - GF_SECURITY_ADMIN_PASSWORD=password

@@ -12,6 +12,7 @@ import com.programmingtechie.order_service.repository.IOrderRepository;
 import com.programmingtechie.order_service.utils.MapperUtil;
 import io.micrometer.tracing.Span;
 import io.micrometer.tracing.Tracer;
+import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
