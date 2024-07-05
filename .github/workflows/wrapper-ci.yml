@@ -9,16 +9,16 @@ on:
 
 jobs:
   inventoryService-job:
-    uses: ./../../inventory-service/.github/workflows/inventory-service-ci.yml@main
+    uses: ./inventory-service/.github/workflows/inventory-service-ci.yml@main
     with:
       branch: ${{ github.ref_name }}
 
   orderService-job:
-    uses: ./../../order-service/.github/workflows/order-service-ci.yml@main
+    uses: ./order-service/.github/workflows/order-service-ci.yml@main
     with:
       branch: ${{ github.ref_name }}
 
   productService-job:
-    uses: ./../../product-service/.github/workflows/product-service-ci.yml@main
+    uses: ./product-service/.github/workflows/product-service-ci.yml@main
     with:
       branch: ${{ github.ref_name }}
