@@ -1,0 +1,186 @@
+# .github/workflows/ci.yml
+name: Full CI Pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  inventoryService-job:
+    name: Inventory Service CI
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5434:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: inventory_service_db
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 for Inventory Service
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Replace with your specific service setup, e.g., MongoDB, PostgreSQL, etc.
+      - name: Wait for PostgreSQL to be ready
+        run: |
+          echo "Waiting for PostgreSQL to be ready..."
+          for i in {1..10}; do
+            if pg_isready -h localhost -p 5434 -U postgres; then
+              echo "PostgreSQL is ready!"
+              break
+            fi
+            echo "PostgreSQL is not ready yet, waiting..."
+            sleep 10
+          done
+
+      - name: Set environment variables
+        run: |
+          echo "DB_URL=jdbc:postgresql://localhost:5434/inventory_service_db" >> $GITHUB_ENV
+          echo "DB_USER=postgres" >> $GITHUB_ENV
+          echo "DB_PASSWORD=password" >> $GITHUB_ENV
+
+      - name: Build and test Inventory Service
+        run: |
+          mvn -B -f pom.xml clean package
+          mvn -B -f pom.xml test -Dspring.datasource.url=${{ env.DB_URL }} \
+                                 -Dspring.datasource.username=${{ env.DB_USER }} \
+                                 -Dspring.datasource.password=${{ env.DB_PASSWORD }}
+
+      - name: Upload artifacts for Inventory Service
+        uses: actions/upload-artifact@v3
+        with:
+          name: InventoryService-Package
+          path: path/to/inventory-service/target/*.jar
+
+  orderService-job:
+    name: Order Service CI
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5433:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: Mugisha12!
+          POSTGRES_DB: order_service_db
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 for Order Service
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Replace with your specific service setup, e.g., MongoDB, PostgreSQL, etc.
+      - name: Wait for PostgreSQL to be ready
+        run: |
+          echo "Waiting for PostgreSQL to be ready..."
+          for i in {1..10}; do
+            if pg_isready -h localhost -p 5433 -U postgres; then
+              echo "PostgreSQL is ready!"
+              break
+            fi
+            echo "PostgreSQL is not ready yet, waiting..."
+            sleep 10
+          done
+
+      - name: Set environment variables
+        run: |
+          echo "DB_URL=jdbc:postgresql://localhost:5433/order_service_db" >> $GITHUB_ENV
+          echo "DB_USER=postgres" >> $GITHUB_ENV
+          echo "DB_PASSWORD=Mugisha12!" >> $GITHUB_ENV
+
+      - name: Build and test Order Service
+        run: |
+          mvn -B -f pom.xml clean package
+          mvn -B -f pom.xml test -Dspring.datasource.url=${{ env.DB_URL }} \
+                                 -Dspring.datasource.username=${{ env.DB_USER }} \
+                                 -Dspring.datasource.password=${{ env.DB_PASSWORD }}
+
+      - name: Upload artifacts for Order Service
+        uses: actions/upload-artifact@v3
+        with:
+          name: OrderService-Package
+          path: path/to/order-service/target/*.jar
+
+  productService-job:
+    name: Product Service CI
+    runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27018:27017
+        options: >-
+          --health-cmd "mongo --eval 'db.runCommand({ ping: 1 })'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 for Product Service
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Replace with your specific service setup, e.g., MongoDB, PostgreSQL, etc.
+      - name: Wait for MongoDB to be ready
+        run: |
+          echo "Waiting for MongoDB to be ready..."
+          for i in {1..10}; do
+            if mongo --host localhost --port 27018 --eval 'db.runCommand({ ping: 1 })' > /dev/null 2>&1; then
+              echo "MongoDB is ready!"
+              break
+            fi
+            echo "MongoDB is not ready yet, waiting..."
+            sleep 10
+          done
+
+      - name: Set environment variables
+        run:
+          echo "DB_URL=mongodb://localhost:27018/product-service" >> $GITHUB_ENV
+
+      - name: Build and test Product Service
+        run: |
+          mvn -B -f pom.xml clean package
+          mvn -B
+
+      - name: Upload artifacts for Product Service
+        uses: actions/upload-artifact@v3
+        with:
+          name: ProductService-Package
+          path: path/to/product-service/target/*.jar

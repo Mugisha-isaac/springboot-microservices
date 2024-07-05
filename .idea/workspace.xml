@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="fix: error parsing called workflow">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/wrapper-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/wrapper-ci.yml" afterDir="false" />
+    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="fix: workflows">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/wrapper-ci.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory-service/.github/workflows/inventory-service-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/.github/workflows/inventory-service-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/.github/workflows/order-service-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/.github/workflows/order-service-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/.github/workflows/product-service-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/.github/workflows/product-service-ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/.github/workflows/inventory-service-ci.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/.github/workflows/order-service-ci.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/.github/workflows/product-service-ci.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +211,7 @@
       <workItem from="1719996714230" duration="4656000" />
       <workItem from="1720012252543" duration="190000" />
       <workItem from="1720171182744" duration="2837000" />
-      <workItem from="1720180537357" duration="3127000" />
+      <workItem from="1720180537357" duration="4026000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add unversioned files">
       <option name="closed" value="true" />
@@ -468,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720183135124</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="fix: workflows">
+      <option name="closed" value="true" />
+      <created>1720183718134</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1720183718134</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,7 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ft: setting up eureka netflix discovery server" />
     <MESSAGE value="ft: add load balancer" />
     <MESSAGE value="fix: inventory service and order service communication" />
     <MESSAGE value="ft: api-gateway config" />
@@ -517,6 +525,7 @@
     <MESSAGE value="fix: correct service ref path" />
     <MESSAGE value="fix: invalid value workflow reference" />
     <MESSAGE value="fix: error parsing called workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: error parsing called workflow" />
+    <MESSAGE value="fix: workflows" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: workflows" />
   </component>
 </project>
