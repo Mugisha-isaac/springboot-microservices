@@ -25,8 +25,6 @@ This project demonstrates the implementation of a microservices architecture usi
 4. Kafka: Distributed event streaming platform.
 5. API Gateway: Single entry point for client requests.
 6. Docker: Containerization for easy deployment.
-7. Technologies Used
-8. Spring Boot: Backend framework for microservices.
-
+7. Github actions
 
 
