@@ -1,14 +1,12 @@
----
 version: '3.7'
 services:
-  ## MySQL Docker Compose Config
   postgres-order:
     container_name: postgres-order
     image: postgres
     environment:
-      POSTGRES_DB: order_service_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Mugisha12!
+      POSTGRES_DB: order_service_db
       PGDATA: /data/postgres
     volumes:
       - ./postgres-order:/data/postgres
@@ -24,43 +22,47 @@ services:
       postgres -D /var/lib/postgresql/data -p 5431"
     restart: always
 
+
   postgres-inventory:
     container_name: postgres-inventory
     image: postgres
     environment:
-      POSTGRES_DB: inventory_service_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Mugisha12!
+      POSTGRES_DB: inventory_service_db
       PGDATA: /data/postgres
     volumes:
       - ./postgres-inventory:/data/postgres
     ports:
       - "5432:5432"
     restart: always
+    command: >
+      bash -c "
+      mkdir -p /var/lib/postgresql/data && 
+      chmod -R 0700 /var/lib/postgresql/data && 
+      chown -R postgres:postgres /var/lib/postgresql/data && 
+      postgres -D /var/lib/postgresql/data -p 5432"
 
-  ## Mongo Docker Compose Config
   mongo:
     container_name: mongo
     image: mongo:4.4.14-rc0-focal
-    restart: always
     ports:
       - "27017:27017"
     expose:
       - "27017"
     volumes:
-      - ./mongo-data:/data/db
+      - ./mongo:/data/db
 
-  ## Keycloak Config with Postgres database
-  postgres_keycloak:
-    container_name: postgres_keycloak
+  postgres-keycloak:
+    container_name: postgres-keycloak
     image: postgres
-    volumes:
-      - ./postgres-keycloak:/data/postgres
     environment:
-      POSTGRES_DB: keycloak
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Mugisha12!
+      POSTGRES_DB: keycloak
       PGDATA: /data/postgres
+    volumes:
+      - ./postgres-keycloak:/data/postgres
 
   keycloak:
     container_name: keycloak
@@ -77,13 +79,14 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./realms/:/opt/keycloak/data/import/
+        - ./realms/:/opt/keycloak/data/import/
     depends_on:
-      - postgres_keycloak
+      - postgres-keycloak
+
 
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.0.1
     container_name: zookeeper
+    image: confluentinc/cp-zookeeper:7.0.1
     ports:
       - "2181:2181"
     environment:
@@ -106,112 +109,91 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
 
-  ## Zipkin
+
   zipkin:
     image: openzipkin/zipkin
     container_name: zipkin
     ports:
       - "9411:9411"
 
-  ## Eureka Server
   discovery-service:
-    image: misaac/discovery-server:latest
+    build:
+      context: ./discovery-server
+      dockerfile: Dockerfile
     container_name: discovery-service
     ports:
       - "8761:8761"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
-#    depends_on:
-#      - zipkin
+        SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - zipkin
 
   api-gateway:
-    image: misaac/api-gateway:latest
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
     container_name: api-gateway
     ports:
       - "8181:8080"
-    expose:
-      - "8181"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY= TRACE
     depends_on:
-      - zipkin
       - discovery-service
+      - zipkin
       - keycloak
 
-  ## Product-Service Docker Compose Config
   product-service:
+    build:
+      context: ./product-service
+      dockerfile: Dockerfile
     container_name: product-service
-    image: misaac/product-service:latest
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     depends_on:
-      - mongo
       - discovery-service
+      - zipkin
       - api-gateway
+      - mongo
 
-  ## Order-Service Docker Compose Config
   order-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
     container_name: order-service
-    image: misaac/order-service:latest
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-order:5431/order-service
     depends_on:
+      - discovery-service
+      - zipkin
+      - api-gateway
       - postgres-order
       - broker
-      - zipkin
-      - discovery-service
-      - api-gateway
 
-  ## Inventory-Service Docker Compose Config
+
   inventory-service:
+    build:
+      context: ./inventory-service
+      dockerfile: Dockerfile
     container_name: inventory-service
-    image: misaac/inventory-service:latest
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-inventory:5432/inventory-service
     depends_on:
-      - postgres-inventory
       - discovery-service
-      - api-gateway
-
-  ## Notification-Service Docker Compose Config
-  notification-service:
-    container_name: notification-service
-    image: misaac/notification-service:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
       - zipkin
-      - broker
-      - discovery-service
       - api-gateway
-#  ## Prometheus
-#  prometheus:
-#    image: prom/prometheus:v2.37.1
-#    container_name: prometheus
-#    restart: always
-#    ports:
-#      - "9090:9090"
-#    volumes:
-#      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-#    depends_on:
-#      - product-service
-#      - inventory-service
-#      - order-service
-#      - notification-service
-#
-#  grafana:
-#    image: grafana/grafana-oss:8.5.2
-#    container_name: grafana
-#    restart: always
-#    ports:
-#      - "3000:3000"
-#    links:
-#      - prometheus:prometheus
-#    volumes:
-#      - ./grafana:/var/lib/grafana
-#    environment:
-#      - GF_SECURITY_ADMIN_USER=admin
-#      - GF_SECURITY_ADMIN_PASSWORD=password
+      - postgres-inventory
+      - broker
+
+  notification-service:
+    build:
+      context: ./notification-service
+      dockerfile: Dockerfile
+    container_name: notification-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - discovery-service
+      - zipkin
+      - api-gateway
+      - broker

@@ -4,10 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="fix: remove service base workflows">
+    <list default="true" id="f984a90e-7f4e-4a3f-a47f-6d08a9f83b44" name="Changes" comment="fix: Hibernate dialect">
+      <change afterPath="$PROJECT_DIR$/discovery-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-server/Dockerfile.layered" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inventory-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inventory-service/Dockerfile.layered" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/Dockerfile.layered" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/Dockerfile.layered" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-service/Dockerfile.layered" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.docker.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inventory-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,57 +52,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.api-gateway [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.api-gateway [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.api-gateway [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.discovery-server [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.discovery-server [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.inventory-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.inventory-service [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.notification-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.notification-service [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.order-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.order-service [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.order-service [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.product-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.product-service [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.product-service [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.wrapper [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.wrapper [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.wrapper [package].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ApiGateWayApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.DiscoveryServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.InventoryServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ProductServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.api-gateway [clean].executor": "Run",
+    "Maven.api-gateway [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor": "Run",
+    "Maven.api-gateway [install].executor": "Run",
+    "Maven.api-gateway [package].executor": "Run",
+    "Maven.discovery-server [clean].executor": "Run",
+    "Maven.discovery-server [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor": "Run",
+    "Maven.discovery-server [package].executor": "Run",
+    "Maven.inventory-service [clean].executor": "Run",
+    "Maven.inventory-service [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor": "Run",
+    "Maven.inventory-service [package].executor": "Run",
+    "Maven.notification-service [clean].executor": "Run",
+    "Maven.notification-service [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor": "Run",
+    "Maven.notification-service [package].executor": "Run",
+    "Maven.order-service [clean].executor": "Run",
+    "Maven.order-service [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor": "Run",
+    "Maven.order-service [package].executor": "Run",
+    "Maven.product-service [clean].executor": "Run",
+    "Maven.product-service [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor": "Run",
+    "Maven.product-service [package].executor": "Run",
+    "Maven.wrapper [clean].executor": "Run",
+    "Maven.wrapper [com.google.cloud.tools:jib-maven-plugin:3.2.1:build].executor": "Run",
+    "Maven.wrapper [package].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ApiGateWayApplication.executor": "Run",
+    "Spring Boot.DiscoveryServerApplication.executor": "Run",
+    "Spring Boot.InventoryServiceApplication.executor": "Run",
+    "Spring Boot.NotificationServiceApplication.executor": "Run",
+    "Spring Boot.OrderServiceApplication.executor": "Run",
+    "Spring Boot.ProductServiceApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\LENOVO\OneDrive\Documents\workdir\courses\spring microservices\wrapper\.github\workflows" />
-      <recent name="C:\Users\LENOVO\OneDrive\Documents\workdir\courses\spring microservices\wrapper" />
+      <recent name="C:\Users\LENOVO\OneDrive\Documents\workdir\courses\spring microservices\wrapper\product-service" />
+      <recent name="C:\Users\LENOVO\OneDrive\Documents\workdir\courses\spring microservices\wrapper\order-service" />
+      <recent name="C:\Users\LENOVO\OneDrive\Documents\workdir\courses\spring microservices\wrapper\notification-service" />
+      <recent name="C:\Users\LENOVO\OneDrive\Documents\workdir\courses\spring microservices\wrapper\inventory-service" />
+      <recent name="C:\Users\LENOVO\OneDrive\Documents\workdir\courses\spring microservices\wrapper\discovery-server" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -208,7 +230,9 @@
       <workItem from="1719996714230" duration="4656000" />
       <workItem from="1720012252543" duration="190000" />
       <workItem from="1720171182744" duration="2837000" />
-      <workItem from="1720180537357" duration="5277000" />
+      <workItem from="1720180537357" duration="5716000" />
+      <workItem from="1720376216413" duration="1280000" />
+      <workItem from="1721288205547" duration="8187000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add unversioned files">
       <option name="closed" value="true" />
@@ -482,7 +506,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720184634066</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="fix: Hibernate dialect">
+      <option name="closed" value="true" />
+      <created>1720185939098</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1720185939098</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: inventory service and order service communication" />
     <MESSAGE value="ft: api-gateway config" />
     <MESSAGE value="ft: define all apis definition in api gateway service" />
     <MESSAGE value="ft: add keycloak configuration" />
@@ -531,6 +562,7 @@
     <MESSAGE value="fix: error parsing called workflow" />
     <MESSAGE value="fix: workflows" />
     <MESSAGE value="fix: remove service base workflows" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: remove service base workflows" />
+    <MESSAGE value="fix: Hibernate dialect" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Hibernate dialect" />
   </component>
 </project>
